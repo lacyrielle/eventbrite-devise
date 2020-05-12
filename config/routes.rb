@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users 
+  get '/users/sign_in', to: 'session#new'
+  get '/users/sign_up', to: 'registration#new'
+  get '/users/password/new', to: 'passwords#new'
+  get '/users/edit', to: 'registration#edit'
+  get '/users/password/edit', to: 'passwords#edit'
   get 'home', to: 'event#index'
   get 'new', to: 'event#new'
   get 'static_pages/index', to: 'static_pages#index'
